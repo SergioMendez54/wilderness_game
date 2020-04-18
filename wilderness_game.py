@@ -1,6 +1,4 @@
-######
 # TREENODE CLASS
-######
 class TreeNode():
   def __init__(self, story_piece):
     self.story_piece = story_piece
@@ -24,34 +22,27 @@ class TreeNode():
         print(chosen_child.story_piece)
         story_node = chosen_child
 
-######
 # VARIABLES FOR TREE
-######
-story_root = TreeNode(
-  """
+story_root = TreeNode("""
 You are in a forest clearing. There is a path to the left.
 A bear emerges from the trees and roars!
 Do you: 
 1 ) Roar back!
 2 ) Run to the left...
 """)
-choice_a = TreeNode(
-  """
+choice_a = TreeNode("""
 The bear is startled and runs away.
 Do you:
 1 ) Shout 'Sorry bear!'
 2 ) Yell 'Hooray!'
 """)
-choice_a_1 = TreeNode(
-  """
+choice_a_1 = TreeNode("""
 The bear returns and tells you it's been a rough week. After making peace with
 a talking bear, he shows you the way out of the forest.
 
 YOU HAVE ESCAPED THE WILDERNESS.
-"""
-)
-choice_a_2 = TreeNode(
-  """
+""")
+choice_a_2 = TreeNode("""
 The bear returns and tells you that bullying is not okay before leaving you alone
 in the wilderness.
 
@@ -76,21 +67,21 @@ path leading out of the forest.
 YOU HAVE ESCAPED THE WILDERNESS.
 """)
 
-######
-# TESTING AREA
-######
+# SETUP AREA
+story_root.add_child(choice_a)
+choice_a.add_child(choice_a_1)
+choice_a.add_child(choice_a_2)
+
+story_root.add_child(choice_b)
+choice_b.add_child(choice_b_1)
+choice_b.add_child(choice_b_2)
+
 print("Once upon a time...")
 
 user_choice = input("What is your name? ")
 print(user_choice)
 
-
-story_root.add_child(choice_a)
-choice_a.add_child(choice_a_1)
-choice_a.add_child(choice_a_2)
-story_root.add_child(choice_b)
-choice_b.add_child(choice_b_1)
-choice_b.add_child(choice_b_2)
+# START GAME
 story_root.traverse()
 
 
